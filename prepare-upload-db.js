@@ -49,7 +49,7 @@ async function prepareDatabase() {
     // 4. Error handling
     } catch (error) {
         console.error('An error occurred during database preparation:', error.message);
-        // Versuch, bei einem Fehler ein Rollback durchzuführen
+        // Attempt to perform a rollback in case of an error
         try { 
             await new Promise((resolve, reject) => {
                 db.run("ROLLBACK;", (err) => {
